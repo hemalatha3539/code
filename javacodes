@@ -1,0 +1,264 @@
+                                                                     //                   java basic codes
+                                                                                    ////Swap of numbers in array
+import java.util.*;
+public class array {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        swap(arr, 1, 3);
+        System.out.print(Arrays.toString(arr));
+    }
+
+    static void swap(int[] brr, int index1, int index2) {
+        int temp = brr[index1];
+        brr[index1] = brr[index2];
+        brr[index2] = temp;
+    }
+
+
+}
+
+
+
+                                                                   //without writing the static in main method the code wont run
+public class hack {
+    public  void main(String[] output) {
+        System.out.println("hello world");
+
+    }
+}
+                                                                                   //leaner search
+
+public class Lenearsearch {
+    public static void main(String[] args){
+      int[] arr={3,4,5,7,9,66,44,55,33};
+     System.out.println(lenear(arr,44));
+                                                               //searching a character in a string
+        String str="kunal";
+        char targer='x';
+        System.out.println(lenear2(str,targer));
+    }
+    static boolean lenear2(String str,char target){
+        //if array doesnt contain any values then it should return -1
+        if(str.length()==0){
+            return false;
+        }
+        for(char ch:str.toCharArray()){
+            if(ch==target){
+                return true;
+            }
+        }
+        //if the array not found any element that your trying to find
+        return false;
+    }
+                                                                              //searching an element in integer array
+    static int lenear(int[] arr,int target){
+        //if array doesnt contain any values then it should return -1
+        if(arr.length==0){
+            return -1;
+        }
+        for (int i = 0; i <arr.length ; i++) {
+            if(arr[i]==target){
+                return i;//it will return the particular element of that value
+            }
+        }
+        //if the array not found any element that your trying to find
+        return -1;
+    }
+}
+
+                                                                       //we can directly declare the variable name inside the  main method
+
+import java.util.*;
+public class Main {
+    public static void main(String[] output) {
+         output=new String[2];
+        output[0]="wow got output";
+        System.out.println(Arrays.toString(output));
+    }
+}
+
+                                                                                      //maximum element in the array
+
+import java.util.*;
+
+public class Max {
+    public static void main(String[] args) {
+
+        int[] arr=new int[4];
+        Scanner in=new Scanner(System.in);
+        for (int i = 0; i < arr.length; i++) {
+            arr[i]=in.nextInt();
+        }
+
+        System.out.println(maximum(arr));
+
+    }
+    static int maximum(int[] arr) {
+
+
+       int max = arr[0];
+       for (int i = 0; i < arr.length; i++) {
+           if (max < arr[i]) {
+               max = arr[i];
+           }
+       }
+       return max;
+   }
+
+
+}
+                                      //mi value
+public class minvalue {
+    public static void main(String[] args) {
+        int[] arr={12,3,6,8,7,21,56};
+        System.out.println(min(arr));
+    }
+    static int min(int[] arr){
+        int m=arr[0];
+        for (int i = 0; i <arr.length ; i++) {
+           if(arr[i]<m){
+               m=arr[i];
+           }
+        }
+        return m;
+    }
+}
+//public class numberofnumbers {
+    public static void main(String[] args) {
+        int[] a={12,3,8336,5098,99,434};
+//        System.out.println(check(a));
+        System.out.println(digit2(-1509));
+    }
+    static int check(int[] arr){
+        int c=0;
+        for(int num:arr){
+            if(even(num)){
+                c++;
+            }
+        }
+     return c;
+    }
+                                                  // https://leetcode.com/submissions/detail/1187874036/(leet code question)Find Numbers with Even Number of Digits
+//checking weather number id=s even or not
+    static boolean even(int num) {
+       int number=digit2(num);
+       if(number%2==0){
+           return true;
+        }
+      return false;
+    }
+    static int digit2(int num){
+        if(num<0){
+            num=num*-1;
+        }
+        if(num==0){
+            return 1;
+        }
+        return (int)(Math.log10(num))+1;
+    }
+    // to find the count of digits weather these even count digit of odd count digit
+    static int digit(int num){
+        int count=0;
+        while(num>0){
+            count++;
+            num=num/10;
+        }
+        return count;
+    }
+
+                                                // reverse of an array
+import java.util.*;
+public class Reverse {
+    public static void main(String[] args){
+        int[] arr={1,2,3,4,5};
+        reverse(arr,0, arr.length-1);
+        System.out.println(Arrays.toString(arr));
+    }
+    //for reversing the array
+    static void reverse(int[] arr,int start,int end){
+        start=0;
+        end=arr.length-1;
+        if(start<end){
+            swap(arr,start,end);
+            start++;
+            end--;
+
+        }
+
+
+    }
+//for swaping the arrays
+    static void swap(int[] brr,int index1,int index2){
+        int temp=brr[index1];
+        brr[index1]=brr[index2];
+        brr[index2]=temp;
+    }
+}
+
+											//searching in 2d arrays
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class SearchingintwoD {
+    public static void main(String[] args) {
+//     Scanner in = new Scanner(System.in);
+        int[][] arr = {
+                {1,2,3,4},
+                {5,6},
+                {7,8},
+                {11,22,44}
+        };
+        System.out.println(Arrays.toString(lenearsearch(arr,8)));
+
+
+        //input
+    } static int[] lenearsearch(int[][] arr,int target){
+        for (int row = 0; row < arr.length; row++)
+
+        {
+            for (int col = 0; col < arr[row].length; col++) {
+              if(arr[row][col]==target){
+                  return new int[]{row,col};
+              }
+            }
+
+        }
+        return new int[]{-1,-1};
+    }
+
+
+
+
+
+}
+
+}
+								//leet code(https://leetcode.com/submissions/detail/1187905391/)Richest Customer Wealth
+
+public class wealthbank {
+    public static void main(String[] args) {
+        int arr[][]={
+                {1,2,3},
+                {4,5,6},
+                {1,1,1}
+
+        };
+        System.out.println(maximumWealth(arr));
+    }
+    static int maximumWealth(int[][] accounts) {
+        int max=Integer.MIN_VALUE;
+
+        for (int[] account : accounts) {
+            int sum = 0;
+            for (int i : account) {
+                sum += i;
+            }
+            if (sum > max) {
+                max = sum;
+            }
+
+        }
+        return max;
+    }
+}
+
